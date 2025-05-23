@@ -642,7 +642,7 @@ require('lazy').setup({
         }, -- rust
         tailwindcss = {},
         terraformls = {},
-        volar = {}, -- vue
+        -- volar = {}, -- vue
         vuels = {}, -- vue
         hydra_lsp = {}, --yaml
         yamlls = {},
