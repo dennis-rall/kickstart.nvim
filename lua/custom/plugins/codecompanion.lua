@@ -2,12 +2,13 @@ return {
   'olimorris/codecompanion.nvim',
   opts = {
     adapters = {
-      openrouter_claude = function()
+      openrouter = function()
         return require('codecompanion.adapters').extend('openai_compatible', {
           env = {
             url = 'https://openrouter.ai/api',
             api_key = 'OPENROUTER_API_KEY',
             chat_url = '/v1/chat/completions',
+            models_endpoint = '/v1/models',
           },
           schema = {
             model = {
@@ -19,10 +20,13 @@ return {
     },
     strategies = {
       chat = {
-        adapter = 'openrouter_claude',
+        adapter = 'openrouter',
       },
       inline = {
-        adapter = 'openrouter_claude',
+        adapter = 'openrouter',
+      },
+      cmd = {
+        adapter = 'openrouter',
       },
     },
     display = {
@@ -34,24 +38,20 @@ return {
         provider = 'default', -- default|mini_diff
       },
     },
+    extensions = {
+      mcphub = {
+        callback = 'mcphub.extensions.codecompanion',
+        opts = {
+          show_result_in_chat = true, -- Show mcp tool results in chat
+          make_vars = true, -- Convert resources to #variables
+          make_slash_commands = true, -- Add prompts as /slash commands
+        },
+      },
+    },
   },
-  config = function()
-    require("codecompanion").setup({
-      extensions = {
-        mcphub = {
-          callback = "mcphub.extensions.codecompanion",
-            opts = {
-              show_result_in_chat = true,  -- Show mcp tool results in chat
-              make_vars = true,            -- Convert resources to #variables
-              make_slash_commands = true,  -- Add prompts as /slash commands
-            }
-          }
-        }
-      })
-  end,
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
   },
-  vim.keymap.set('n', '<leader>cc', ':CodeCompanionChat<CR>', { desc = 'Open CodeCompanionChat', silent = true}),
+  vim.keymap.set('n', '<leader>cc', ':CodeCompanionChat<CR>', { desc = 'Open CodeCompanionChat', silent = true }),
 }
