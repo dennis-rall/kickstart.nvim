@@ -622,9 +622,7 @@ require('lazy').setup({
         eslint = {},
         html = {},
         jsonls = {},
-        quick_lint_js = {}, -- javascript
         ts_ls = {},
-        -- tsserver = {},
         ltex = {}, -- latex
         texlab = {}, -- latex
         marksman = {}, -- markdown
@@ -642,8 +640,7 @@ require('lazy').setup({
         }, -- rust
         tailwindcss = {},
         terraformls = {},
-        -- volar = {}, -- vue
-        vuels = {}, -- vue
+        vue_ls = {}, -- vue
         hydra_lsp = {}, --yaml
         yamlls = {},
 
