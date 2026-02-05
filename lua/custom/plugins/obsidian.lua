@@ -1,5 +1,5 @@
 return {
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   version = "*",  -- recommended, use latest release instead of latest commit
   -- lazy = true,
   -- ft = "markdown",
@@ -10,10 +10,6 @@ return {
   --   "BufReadPre path/to/my-vault/**.md",
   --   "BufNewFile path/to/my-vault/**.md",
   -- },
-  dependencies = {
-    -- Required.
-    "nvim-lua/plenary.nvim",
-  },
   opts = {
     workspaces = {
       {
@@ -24,6 +20,13 @@ return {
     notes_subdir = "notes",
     ui = {
       enable = false,
-    }
+    },
+    legacy_commands = false,
+    templates = {
+      folder = "templates",
+    },
+    note_id_func = function(title)
+			return title
+		end,
   },
 }
