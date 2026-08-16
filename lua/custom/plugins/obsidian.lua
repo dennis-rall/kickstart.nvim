@@ -8,11 +8,9 @@ require('obsidian').setup {
     },
   },
   notes_subdir = 'notes',
+  new_notes_location = 'notes_subdir',
   ui = {
     enable = false,
-  },
-  picker = {
-    name = 'telescope.nvim',
   },
   legacy_commands = false,
   templates = {
